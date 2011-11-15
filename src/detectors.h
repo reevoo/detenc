@@ -2,6 +2,8 @@
 
 #define ENC_US_ASCII     "US-ASCII"
 #define ENC_UTF_8        "UTF-8"
+#define ENC_UTF_16LE     "UTF-16LE"
+#define ENC_UTF_16BE     "UTF-16BE"
 #define ENC_WINDOWS_1252 "WINDOWS-1252"
 #define ENC_ISO_8859_15  "ISO-8859-15"
 #define ENC_UNKNOWN      "UNKNOWN"
