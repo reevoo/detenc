@@ -4,6 +4,8 @@
 #include "libdetenc.h"
 #include "usage.h"
 
+#define VERSION "2"
+
 void show_usage (void) {
   printf(USAGE_TEXT);
 }
@@ -17,7 +19,7 @@ int main (int argc, char **argv) {
   char *filename;
   const char *encoding;
 
-  while ((opt = getopt(argc, argv, "oqh")) != -1) {
+  while ((opt = getopt(argc, argv, "oqhv")) != -1) {
     switch (opt) {
       case 'o':
         show_offset = 1;
@@ -27,6 +29,9 @@ int main (int argc, char **argv) {
         break;
       case 'h':
         show_usage();
+        return 0;
+      case 'v':
+        printf("detenc: version %s\n", VERSION);
         return 0;
       default:
         fprintf(stderr, "Unknown option -%c", opt);

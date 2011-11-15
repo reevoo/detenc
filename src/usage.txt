@@ -8,5 +8,7 @@ Options:
     If the encoding is UNKNOWN, show the offset of the byte that didn't conform.
   -q
     Quiet: just give the encoding for each input file; don't print the filename.
+  -v
+    Print the version
   -h
     Show this help text.
