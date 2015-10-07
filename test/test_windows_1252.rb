@@ -1,6 +1,6 @@
-require File.join(File.dirname(__FILE__), 'common')
+require_relative 'test_helper'
 
-class Windows1252Test < Test::Unit::TestCase
+class Windows1252Test < MiniTest::Test
   include DetencHelper
 
   INVALID_BYTES = (0x00..0x08).to_a + (0x0E..0x1F).to_a + [0x7F, 0x81, 0x8D, 0x8F, 0x90, 0x9D]
@@ -19,7 +19,7 @@ class Windows1252Test < Test::Unit::TestCase
         s << [b].pack('C') unless (INVALID_BYTES - [invalid_byte]).include?(b)
         s
       }
-      assert_not_equal WINDOWS_1252, detenc(sample), "Byte 0x%02X is not in %s" % [invalid_byte, WINDOWS_1252]
+      refute_equal WINDOWS_1252, detenc(sample), "Byte 0x%02X is not in %s" % [invalid_byte, WINDOWS_1252]
     end
   end
 end

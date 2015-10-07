@@ -1,6 +1,6 @@
-require File.join(File.dirname(__FILE__), 'common')
+require_relative 'test_helper'
 
-class UnknownEncodingTest < Test::Unit::TestCase
+class UnknownEncodingTest < MiniTest::Test
   include DetencHelper
 
   def test_should_be_unknown_if_it_contains_all_bytes

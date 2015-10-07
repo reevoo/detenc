@@ -1,6 +1,6 @@
-require File.join(File.dirname(__FILE__), 'common')
+require_relative 'test_helper'
 
-class EncodingDetectionTest < Test::Unit::TestCase
+class EncodingDetectionTest < MiniTest::Test
   include DetencHelper
 
   SAMPLE = "Pâté: €3.20"
@@ -13,13 +13,13 @@ class EncodingDetectionTest < Test::Unit::TestCase
 
   def test_should_recognise_windows_1252
     encoding = WINDOWS_1252
-    sample = Iconv.new(encoding, UTF_8).iconv(SAMPLE)
+    sample = SAMPLE.encode(encoding)
     assert_equal encoding, detenc(sample)
   end
 
   def test_should_recognise_iso_8859_15
     encoding = ISO_8859_15
-    sample = Iconv.new(encoding, UTF_8).iconv(SAMPLE)
+    sample = SAMPLE.encode(encoding)
     assert_equal encoding, detenc(sample)
   end
 

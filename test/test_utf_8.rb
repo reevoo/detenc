@@ -1,6 +1,6 @@
-require File.join(File.dirname(__FILE__), 'common')
+require_relative 'test_helper'
 
-class UTF8StressTest < Test::Unit::TestCase
+class UTF8StressTest < MiniTest::Test
   include DetencHelper
 
   # From Markus Kuhn's stress tests
@@ -211,6 +211,6 @@ class UTF8StressTest < Test::Unit::TestCase
 
   def disabled_test_should_reject_illegal_code_positions
     assert_invalid "\xef\xbf\xbe"
-    assert_invalid "\xef\xbf\xbf" 
+    assert_invalid "\xef\xbf\xbf"
   end
 end

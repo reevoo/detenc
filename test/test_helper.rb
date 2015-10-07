@@ -1,5 +1,4 @@
-require 'test/unit'
-require 'iconv'
+require 'minitest/autorun'
 require 'tempfile'
 
 module DetencHelper
@@ -15,7 +14,7 @@ module DetencHelper
     t = Tempfile.new('detenc')
     t << data
     t.close
-    `bin/detenc -q #{t.path}`.strip
+    `../bin/detenc -q #{t.path}`.strip
   end
 end
 

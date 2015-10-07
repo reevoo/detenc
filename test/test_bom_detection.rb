@@ -1,6 +1,6 @@
-require File.join(File.dirname(__FILE__), 'common')
+require_relative 'test_helper'
 
-class EncodingDetectionTest < Test::Unit::TestCase
+class BOMDetectionTest < MiniTest::Test
   include DetencHelper
 
   SAMPLE = "Pâté: €3.20"
@@ -10,10 +10,10 @@ class EncodingDetectionTest < Test::Unit::TestCase
   end
 
   def test_should_recognise_a_utf16LE_bom
-    assert_equal UTF_16LE, detenc("\xFF\xFE"+Iconv.new(UTF_16LE, UTF_8).iconv(SAMPLE))
+    assert_equal UTF_16LE, detenc("\xFF\xFE".force_encoding(UTF_16LE)+SAMPLE.encode(UTF_16LE))
   end
 
   def test_should_recognise_a_utf16BE_bom
-    assert_equal UTF_16BE, detenc("\xFE\xFF"+Iconv.new(UTF_16BE, UTF_8).iconv(SAMPLE))
+    assert_equal UTF_16BE, detenc("\xFE\xFF".force_encoding(UTF_16BE)+SAMPLE.encode(UTF_16BE))
   end
 end
