@@ -1,7 +1,10 @@
-detenc
+# detenc
+
+[![Build Status](https://travis-ci.org/reevoo/detenc.svg?branch=master)](https://travis-ci.org/reevoo/detenc)
+
 A lightweight, low-memory character encoding detector.
-Paul Battley <pbattley@gmail.com>
-http://www.reevoo.com/
+
+Paul Battley <pbattley@gmail.com> http://www.reevoo.com/
 
 detenc is a fast character encoding detector for Western European text.  It can
 determine whether a file is encoded in US-ASCII, UTF-8, ISO-8859-15,
@@ -13,22 +16,24 @@ The program was written to help normalise the encoding of very large data feeds
 (of the order of several gigabytes) at Reevoo. It uses very little memory and
 can determine the encoding of a two-gigabyte file in under a minute.
 
-Build
+### Build
 
 The program is written in C and uses standard libraries. The test suite is
-written in Ruby.
+written in Ruby and depends on minitest.
 
-  make         # builds binary
-  make check    # runs test suite against binary
-  make install # installs binary to /usr/local/bin
+```
+make         # builds binary
+make check   # runs test suite against binary
+make install # installs binary to /usr/local/bin
+```
 
 It is also possible to build the binary manually: use something like:
 
-  cc -o bin/detenc src/*.c
+`cc -o bin/detenc src/*.c`
 
-Use
+### Use
 
-  detenc FILENAME (FILENAME ...)
+`detenc FILENAME (FILENAME ...)`
 
 This will output the filename and encoding, one per line. To print just the
 encoding, use the -q switch.
