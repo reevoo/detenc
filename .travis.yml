@@ -1,0 +1,9 @@
+language: c
+before_install:
+  - rvm install 2.2.3
+  - gem install minitest
+compiler:
+  - clang
+  - gcc
+script: make check
+sudo: false
