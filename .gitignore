@@ -1,2 +1,5 @@
 bin/detenc
+*.o
+src/detenc
 src/usage.h
+src/usage.inc
