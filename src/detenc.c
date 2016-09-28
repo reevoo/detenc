@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include "libdetenc.h"
 
-#define VERSION "2"
+#define VERSION "2.0.0"
 
 void show_usage (void) {
   printf(
